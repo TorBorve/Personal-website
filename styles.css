@@ -3,6 +3,8 @@
     color: blue;
 } */
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css";
+
 
 :root {
     --bulma-primary-h: 229deg;
@@ -14,3 +16,29 @@
     border-bottom: 4px solid hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
     padding-bottom: 0.5rem;
 } 
+
+.icon-link {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.icon-link:hover {
+    /* color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l)); */
+    /* color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l)); */
+    color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+}
+
+.text-link {
+    /* text-transform: uppercase; */
+    text-decoration: none;
+    /* border-bottom: 4px solid hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l)); */
+    border-bottom: 4px solid white;
+    /* color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l)); */
+    color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    /* color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l)); */
+    border-bottom: 4px solid white;
+}

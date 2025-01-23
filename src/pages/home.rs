@@ -14,15 +14,25 @@ fn about_me() -> Html {
                             {"About Me"}
                         </h1>
                         <h2 class="subtitle is-size-3" style="margin-top: 2rem;">
-                            {"Hi, I'm Tor Børve Rasmussen, and I am currently studying 
+                            {"I'm Tor Børve Rasmussen, and I am currently studying 
                             "}<strong>{"Control Systems and Robotics"}</strong>{" at NTNU. 
                             I am in the final year of my master's program and working on my thesis about "}
                             <strong>{"motion control"}</strong>{"."}
                         </h2>
                         <h2 class="subtitle is-size-3">
-                            {"Beyond my academic pursuits, I am passionate about skiing and mountain hiking, 
+                            {"Beyond my academic pursuits, I am passionate about "}<strong>{"skiing and mountain hiking"} </strong>{", 
                             enjoying the nature and the outdoors."}
                         </h2>
+
+                        <div style="
+                            display: flex;
+                            justify-content: center;
+                            margin-top: 3rem;
+                        ">
+                        <a href="/contact" class="button is-link is-size-4 is-uppercase">
+                            {"Contact Me"}
+                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="column">
@@ -38,7 +48,7 @@ fn about_me() -> Html {
 #[function_component(HomePage)]
 pub fn home_page() -> Html {
     html! {
-        <section class="section">
+        <div>
         <NavBar/>
         <div class="container" style="
             background-image: url('static/tor_verbier.jpg');
@@ -52,21 +62,20 @@ pub fn home_page() -> Html {
                 position: absolute;
                 top: 30%;
                 left: 50%;
-                max-width: 30%;
+                max-width: 25%;
                 text-align: left;
                 wrap-word: break-word;
             ">
-                <h1 class="title is-size-1">{"Control Systems and Robotics Engineer based in Norway."} </h1>
-                // <!-- More about me link -->
-                <p class="subtitle is-size-1" href="#about">
+                <h1 class="title is-size-1">{"Control Systems and Robotics Engineer from Norway"} </h1>
+                <a class="button is-link is-size-4 is-uppercase" href="/#about">
                     {"More about me"}
-                </p>
+                </a>
             </div>
         </div>
         <div id="about">
             <AboutMe/>
         </div>
         <Footer/>
-        </section>
+        </div>
     }
 }
