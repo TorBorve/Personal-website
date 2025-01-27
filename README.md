@@ -8,7 +8,8 @@
 - [X] Link to Linkedin and Github
 - [X] Short information about me
 - [X] Contact form
-- [ ]List of projects
+- [ ] List of projects
+- [ ] Not found page
 
 ## Resources
 

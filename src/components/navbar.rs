@@ -10,7 +10,7 @@ pub fn nav_bar() -> Html {
             <div class="navbar-menu">
                 <div class="navbar-end">
                     <a class="navbar-item" href="/#about">{"About"}</a>
-                    <a class="navbar-item" href="/#projects">{"Projects"}</a>
+                    <a class="navbar-item" href="/projects">{"Projects"}</a>
                     <a class="navbar-item" href="/contact">{"Contact"}</a>
                 </div>
             </div>

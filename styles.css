@@ -7,8 +7,8 @@
 
 
 :root {
-    --bulma-primary-h: 229deg;
-    --bulma-primary-l: 54%;
+    --bulma-primary-h: 219deg;
+    --bulma-primary-l: 56%;
   }
   
 .title-bar {
@@ -41,4 +41,29 @@
 .text-link:hover {
     /* color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l)); */
     border-bottom: 4px solid white;
+}
+
+.project-card {
+    position: relative;
+    border-color: var(--bulma-border);
+    border-radius: var(--bulma-radius-large);
+    border-style: solid;
+    border-width: 1px;
+    /* box-shadow: var(--bulma-shadow); */
+    box-shadow: 0 0.25em 0.5em 0 hsla(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l), 0.3);
+    padding: 1.125em 1.5em 1.5em;
+    margin: 0.5em 0;
+    transition-duration: var(--bulma-duration);
+    transition-property: border-color, box-shadow, transform;
+}
+
+.project-card:hover {
+    border-color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    box-shadow: 0 0.5em 1em 0 hsla(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l), 0.8);
+    transform: translateY(-0.25em);
+}
+
+.project-card .title {
+    color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    /* color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l)); */
 }
