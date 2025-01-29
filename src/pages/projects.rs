@@ -2,34 +2,25 @@
 use yew::prelude::*;
 use yew_router::prelude::Link;
 
-use chrono::NaiveDate;
-
 use crate::components::{NavBar, Footer};
 use crate::routes::Route;
+use crate::projects::{load_all_projects, Project};
 
-#[derive(Clone, PartialEq)]
-struct Project {
-    id: usize,
-    title: String,
-    date: NaiveDate,
-    image_url: String,
-    summary: String,
-    full_page: Html,
-}
 
 #[derive(Properties, PartialEq, Clone)]
 struct ProjectCardProps {
     project: Project,
+    id: usize,
 }
 
 #[function_component(ProjectCard)]
 fn project_card(props: &ProjectCardProps) -> Html {
-    let ProjectCardProps{project} = props.clone();
+    let ProjectCardProps{project, id} = props.clone();
 
     let formated_date = project.date.format("%B %d, %Y").to_string();
 
     html! {
-        <Link<Route> to={Route::ProjectDetail {id: project.id}}>
+        <Link<Route> to={Route::ProjectDetail {id: id}}>
         <div class="project-card">
             <div class="columns">
                 <div class="column is-one-third">
@@ -55,56 +46,19 @@ fn project_card(props: &ProjectCardProps) -> Html {
 
 #[function_component(ProjectList)]
 fn project_list() -> Html {
-    let projects= vec![
-        Project {
-            id: 1,
-            title: "Project 1".to_string(),
-            date: NaiveDate::from_ymd_opt(2024, 10, 30).unwrap(),
-            image_url: "static/tor_verbier.jpg".to_string(),
-            summary: "This was a good one!".to_string(),
-            full_page: html! {
-                <>
-                    <h1 class="title">{"Project 1 Details"}</h1>
-                    <p>{"Here is a detailed explanation of Project 1."}</p>
-                    <ul>
-                        <li>{"Feature 1: Amazing functionality"}</li>
-                        <li>{"Feature 2: Easy to use"}</li>
-                        <li>{"Feature 3: Open-source"}</li>
-                    </ul>
-                </>
-            }
-        },
-        Project {
-            id: 2,
-            title: "Project 2".to_string(),
-            date: NaiveDate::from_ymd_opt(2024, 1, 1).unwrap(),
-            image_url: "static/auc_passed_technical.jpg".to_string(),
-            summary: "This was a good two!".to_string(),
-            full_page: html! {
-                <>
-                    <h1 class="title">{"Project 2 Details"}</h1>
-                    <p>{"Here is a detailed explanation of Project 2."}</p>
-                    <ul>
-                        <li>{"Feature 1: Amazing functionality"}</li>
-                        <li>{"Feature 2: Easy to use"}</li>
-                        <li>{"Feature 3: Open-source"}</li>
-                    </ul>
-                </>
-            }
-        },
-    ];
+    let projects= load_all_projects();
 
     html! {
         <div class="container">
             <div class="columns is-multiline">
-                {for projects.into_iter().map(|project| {
-                    let project_clone = project.clone();
-                    html!{
-                        <div class="column is-full">
-                            <ProjectCard project={project_clone}/>
-                        </div>
-                    }
-                })}
+                {for projects.into_iter().enumerate().map(|(index, project)| {
+                                    let project_clone = project.clone();
+                                    html!{
+                                        <div class="column is-full">
+                                            <ProjectCard project={project_clone} id={index}/>
+                                        </div>
+                                    }
+                                })}
             </div> 
         </div>
     }
@@ -128,58 +82,27 @@ pub struct ProjectDetailProps {
 
 #[function_component(ProjectDetailPage)]
 pub fn project_detail_page(props: &ProjectDetailProps) -> Html {
-    let projects= vec![
-        Project {
-            id: 1,
-            title: "Project 1".to_string(),
-            date: NaiveDate::from_ymd_opt(2024, 10, 30).unwrap(),
-            image_url: "static/tor_verbier.jpg".to_string(),
-            summary: "This was a good one!".to_string(),
-            full_page: html! {
-                <>
-                    <h1 class="title">{"Project 1 Details"}</h1>
-                    <p>{"Here is a detailed explanation of Project 1."}</p>
-                    <ul>
-                        <li>{"Feature 1: Amazing functionality"}</li>
-                        <li>{"Feature 2: Easy to use"}</li>
-                        <li>{"Feature 3: Open-source"}</li>
-                    </ul>
-                </>
-            }
-        },
-        Project {
-            id: 2,
-            title: "Project 2".to_string(),
-            date: NaiveDate::from_ymd_opt(2024, 1, 1).unwrap(),
-            image_url: "static/auc_passed_technical.jpg".to_string(),
-            summary: "This was a good two!".to_string(),
-            full_page: html! {
-                <>
-                    <h1 class="title">{"Project 2 Details"}</h1>
-                    <p>{"Here is a detailed explanation of Project 2."}</p>
-                    <ul>
-                        <li>{"Feature 1: Amazing functionality"}</li>
-                        <li>{"Feature 2: Easy to use"}</li>
-                        <li>{"Feature 3: Open-source"}</li>
-                    </ul>
-                </>
-            }
-        },
-    ];
+    let projects= load_all_projects();
     let id = props.id;
 
-    let selected_project = projects.iter().find(|&project| project.id == id);
+    let selected_project = projects.get(id);
     html! {
         <div>
             <NavBar/>
-            {
-            match selected_project {
-                Some(project) => html!{
-                    project.full_page.clone()
-            },
-            None => html!{<p> {"Project not found :("}</p>}
-            }
-            }
+            <section class="section">
+                <div class="container">
+                    <div class="content">
+                        {
+                        match selected_project {
+                            Some(project) => html!{
+                                project.full_page.clone()
+                        },
+                        None => html!{<h1>{"Project not found :("}</h1>}
+                        }
+                        }
+                    </div>
+                </div>
+            </section>
             <Footer/>
         </div>
     }

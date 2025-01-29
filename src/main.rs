@@ -10,6 +10,7 @@ use crate::routes::{Route, switch};
 
 mod components;
 mod pages;
+mod projects;
 
 
 
