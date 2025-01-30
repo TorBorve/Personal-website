@@ -1,6 +1,6 @@
 {
-    "title": "Car MPC",
-    "summary": "Model Predictive Control for a car",
-    "image_url": "static/tor_verbier.jpg",
-    "date": "2021-07-01"
+    "title": "Model Predictive Control for an Autonomous Car",
+    "summary": "During my time at Fuel Fighter NTNU I among other things developed a Nonlinear Model Predictive Controller (NMPC) to control an autonomous car. The MPC was successfully used in the 2022 Shell Eco-Marathon competition, where Fuel Fighter NTNU placed 3rd.",
+    "image_url": "static/ff5_side_kvadrat.jpg",
+    "date": "2022-07-01"
 }
