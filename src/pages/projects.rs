@@ -29,14 +29,12 @@ fn project_card(props: &ProjectCardProps) -> Html {
                     </figure>
                 </div>
                 <div class="column">
-                    <h1 class="title is-size-2">{&project.title}</h1>
+                    <h1 class="title title-bar is-size-2">{&project.title}</h1>
+                    <br/>
                     <h2 class="subtitle is-size-3">{&project.summary}</h2>
-                    <p class="is-size-5" style="
-                        position: absolute;
-                        bottom: 0;
-                        right: 0;
-                        padding: 10px 20px;
-                    ">{formated_date}</p>
+                    <div class="is-flex is-flex-direction-column is-justify-content-end is-align-items-flex-end">
+                        <h1 class="title is-size-5">{formated_date}</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,13 +50,13 @@ fn project_list() -> Html {
         <div class="container">
             <div class="columns is-multiline">
                 {for projects.into_iter().enumerate().map(|(index, project)| {
-                                    let project_clone = project.clone();
-                                    html!{
-                                        <div class="column is-full">
-                                            <ProjectCard project={project_clone} id={index}/>
-                                        </div>
-                                    }
-                                })}
+                    let project_clone = project.clone();
+                    html!{
+                        <div class="column is-full">
+                            <ProjectCard project={project_clone} id={index}/>
+                        </div>
+                    }
+                })}
             </div> 
         </div>
     }
@@ -94,10 +92,23 @@ pub fn project_detail_page(props: &ProjectDetailProps) -> Html {
                     <div class="content">
                         {
                         match selected_project {
-                            Some(project) => html!{
-                                project.full_page.clone()
+                            Some(project) => {
+                            let date_string = project.date.format("%B %d, %Y").to_string();
+                            html!{
+                                <div>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <h1 class="title title-bar">{project.title.clone()}</h1>
+                                        </div>
+                                        <div class="column is-narrow is-flex is-flex-direction-column is-justify-content-end">
+                                            <h5 class="title-bar">{date_string}</h5>
+                                        </div>
+                                    </div>
+                                    {project.full_page.clone()}
+                                </div>
+                            }
                         },
-                        None => html!{<h1>{"Project not found :("}</h1>}
+                        None => html!{<h1 align="center">{"Project not found :("}</h1>}
                         }
                         }
                     </div>

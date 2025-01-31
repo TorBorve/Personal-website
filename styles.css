@@ -64,6 +64,6 @@
 }
 
 .project-card .title {
-    color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    /* color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l)); */
     /* color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l)); */
 }

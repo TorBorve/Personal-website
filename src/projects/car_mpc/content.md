@@ -1,4 +1,4 @@
-# Model Predictive Control for an Autonomous Car
+<!-- # Model Predictive Control for an Autonomous Car -->
 
 During my time at [Fuel Fighter NTNU](https://www.fuelfighter.no/) I among other things developed a Nonlinear Model Predictive Controller (NMPC) to control an autonomous car. Fuel Fighter NTNU is an voluntary student organisation at (Norwegian University of Science and Technology) which develops one of the worlds most energy effiecient and autonomous cars for the student competition [Shell Eco-Marathon](https://www.shellecomarathon.com/). Together with Erik Thallaug Fagerli, I develop an Nonliner MPC for path following and parking of the autonomous Fuel Fighter car. Erik wrote his master thesis about the controller which can be found at [NTNU Open](https://hdl.handle.net/11250/3019945). The MPC was successfully used in the 2022 Shell Eco-Marathon competition, where Fuel Fighter NTNU placed 3rd. The MPC uses ROS to send and get information. The code and more information about the MPC can be found [HERE](https://github.com/TorBorve/mpc_local_planner).
 
