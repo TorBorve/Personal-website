@@ -9,7 +9,7 @@
 - [X] Short information about me
 - [X] Contact form
 - [X] List of projects
-- [ ] Not found page
+- [X] Not found page
 
 ## Resources
 
