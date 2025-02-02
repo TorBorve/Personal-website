@@ -28,7 +28,7 @@ jobs:
         with:
           path: ./dist/
 
-  deploy:
+  transfer_build:
     needs: build
     runs-on: ubuntu-latest
     steps:
