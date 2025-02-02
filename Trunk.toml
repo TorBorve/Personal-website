@@ -1,5 +1,4 @@
-# [build]
+[build]
+target = "index.html"
 # target = "wasm32-unknown-unknown"
-
-# [static]
-# dir = "static"
+dist = "dist"

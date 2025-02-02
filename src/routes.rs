@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use crate::pages::{not_found, ContactPage, HomePage, ProjectDetailPage, ProjectsListPage, NotFoundPage};
+use crate::pages::{ContactPage, HomePage, ProjectDetailPage, ProjectsListPage, NotFoundPage};
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
