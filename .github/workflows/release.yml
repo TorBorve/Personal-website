@@ -1,7 +1,5 @@
-name: Release Latest Version
-on:
-  push:
-    branches: [main]
+name: Release Latest
+on: [push]
 
 jobs:
   build:
