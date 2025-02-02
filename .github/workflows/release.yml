@@ -28,7 +28,7 @@ jobs:
         with:
           path: ./dist/
 
-  transfer_build:
+  deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +42,7 @@ jobs:
         run: mv ./artifact/ ./dist/
 
       - name: Deploy files
-        uses: appleboy/scp-action@
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
@@ -52,11 +52,11 @@ jobs:
           target: ~/docker_app/nginx-proxy/torborve_web/
           rm: true
 
-    - name: Restart nginx-proxy
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        script: docker restart nginx-proxy
+      - name: Restart nginx-proxy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: docker restart nginx-proxy
