@@ -41,4 +41,4 @@ The MPC works well for several senarios, however looking back I would do several
 - **Polynomial**: Using a polynomial to approximate the path is very simple and is not very good in terms of the fit it provides. Thus, could use something like a spline or Lagrange polynomial, which would likely be better. I tried to use a spline, however at the time ACADOS had limited support for updating the spline (at least not well documented...).
 - **KISS**: Keep it simple stupid. As mentioned using a nonlinear solver is complicated and you have no guarantees for it to work. In heinsight it would be better to just use a simpel path following algorithm such as Pure Pursuit or Stanley controller, however it is not as cool nor impressive ;)
 
-If you have questions about the project feel free to reach out to me.
+If you have questions about the project feel free to reach out to me :)

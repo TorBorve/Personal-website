@@ -10,6 +10,7 @@
 - [X] Contact form
 - [X] List of projects
 - [X] Not found page
+- [ ] Github actions for auto deploy.
 
 ## Resources
 
