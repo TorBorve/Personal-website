@@ -1,0 +1,62 @@
+name: Release Latest Version
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup | Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      
+      - name: Setup | Trunk
+        uses: jetli/trunk-action@v0.5.0
+        with:
+          version: "latest"
+
+      - name: Build | Trunk
+        run: trunk build --release
+
+      - name: Post Setup | Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup | Download dist
+        uses: actions/download-artifact@v4
+
+      - name: Setup | Move dist
+        run: mv ./artifact/ ./dist/
+
+      - name: Deploy files
+        uses: appleboy/scp-action@
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          source: ./dist/
+          target: ~/docker_app/nginx-proxy/torborve_web/
+          rm: true
+
+    - name: Restart nginx-proxy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: docker restart nginx-proxy
