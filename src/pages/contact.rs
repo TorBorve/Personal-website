@@ -4,7 +4,6 @@ use crate::components::{Footer, NavBar};
 
 #[function_component(ContactPage)]
 pub fn contact_page() -> Html {
-
     html! {
         <div>
         <NavBar/>

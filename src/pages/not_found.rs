@@ -4,7 +4,7 @@ use crate::components::{Footer, NavBar};
 
 #[function_component(NotFound)]
 fn not_found() -> Html {
-    html!{
+    html! {
         <div style="
             background-image: url('static/hardanger_stream_clip.jpg');
             background-size: cover;
@@ -35,7 +35,6 @@ fn not_found() -> Html {
 
 #[function_component(NotFoundPage)]
 pub fn not_found_page() -> Html {
-
     html! {
         <div>
             <NavBar/>
@@ -44,4 +43,3 @@ pub fn not_found_page() -> Html {
         </div>
     }
 }
-
