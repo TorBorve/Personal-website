@@ -2,6 +2,26 @@ name: CI
 on: [push, pull_request]
 ## Inspired by https://github.com/simbleau/website
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup | Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy,rustfmt
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build | Clippy
+        run: cargo clippy -- -D warnings
+
+      - name: Build | Rustfmt
+        run: cargo fmt --all -- --check
+
   check:
     runs-on: ubuntu-latest
     steps:
