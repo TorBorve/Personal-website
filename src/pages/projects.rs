@@ -1,11 +1,11 @@
-
 use yew::prelude::*;
 use yew_router::prelude::Link;
 
-use crate::components::{NavBar, Footer};
-use crate::routes::Route;
-use crate::projects::{load_all_projects, Project};
-
+use crate::{
+    components::{Footer, NavBar},
+    projects::{load_all_projects, Project},
+    routes::Route,
+};
 
 #[derive(Properties, PartialEq, Clone)]
 struct ProjectCardProps {
@@ -15,12 +15,12 @@ struct ProjectCardProps {
 
 #[function_component(ProjectCard)]
 fn project_card(props: &ProjectCardProps) -> Html {
-    let ProjectCardProps{project, id} = props.clone();
+    let ProjectCardProps { project, id } = props.clone();
 
     let formated_date = project.date.format("%B %d, %Y").to_string();
 
     html! {
-        <Link<Route> to={Route::ProjectDetail {id: id}}>
+        <Link<Route> to={Route::ProjectDetail {id}}>
         <div class="project-card">
             <div class="columns">
                 <div class="column is-one-third">
@@ -44,7 +44,7 @@ fn project_card(props: &ProjectCardProps) -> Html {
 
 #[function_component(ProjectList)]
 fn project_list() -> Html {
-    let projects= load_all_projects();
+    let projects = load_all_projects();
 
     html! {
         <div class="container">
@@ -57,7 +57,7 @@ fn project_list() -> Html {
                         </div>
                     }
                 })}
-            </div> 
+            </div>
         </div>
     }
 }
@@ -80,7 +80,7 @@ pub struct ProjectDetailProps {
 
 #[function_component(ProjectDetailPage)]
 pub fn project_detail_page(props: &ProjectDetailProps) -> Html {
-    let projects= load_all_projects();
+    let projects = load_all_projects();
     let id = props.id;
 
     let selected_project = projects.get(id);
@@ -117,5 +117,4 @@ pub fn project_detail_page(props: &ProjectDetailProps) -> Html {
             <Footer/>
         </div>
     }
-
 }

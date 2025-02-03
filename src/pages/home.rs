@@ -1,11 +1,10 @@
 use yew::prelude::*;
 
-use crate::components::{NavBar, Footer};
+use crate::components::{Footer, NavBar};
 
 #[function_component(ProjectsIntro)]
 fn projects_intro() -> Html {
-    
-    html!{
+    html! {
         <section class="section">
             <div class="columns is-vcentered">
                 <div class="column" style="width: 30%">
@@ -20,7 +19,7 @@ fn projects_intro() -> Html {
                             {"My Projects"}
                         </h1>
                         <h2 class="subtitle is-size-3" style="margin-top: 2rem;">
-                            // {"I love thinkering and expaning my knowledge. One of the ways I do this is through personal projects. 
+                            // {"I love thinkering and expaning my knowledge. One of the ways I do this is through personal projects.
                             // I have done serveral projects such as Embedded programming in Rust, Ubuntu Homeserver using Ansible, "}
                             {"I love "}<strong>{"tinkering"}</strong>{" and expanding my knowledge across a wide range of disciplines such as, "}<strong>{"mechanical"}</strong>
                             {" systems, "}<strong>{"electronics"}</strong>{", "}<strong>{"programming"}</strong>{", and more."}
@@ -31,7 +30,7 @@ fn projects_intro() -> Html {
                             // Check out some of my projects below!"}
                         </h2>
                         // <h2 class="subtitle is-size-3">
-                        //     {"Beyond my academic pursuits, I am passionate about "}<strong>{"skiing and mountain hiking"} </strong>{", 
+                        //     {"Beyond my academic pursuits, I am passionate about "}<strong>{"skiing and mountain hiking"} </strong>{",
                         //     enjoying the nature and the outdoors."}
                         // </h2>
 
@@ -53,8 +52,7 @@ fn projects_intro() -> Html {
 
 #[function_component(AboutMe)]
 fn about_me() -> Html {
-
-    html!{
+    html! {
         <section class="section">
             <div class="columns is-vcentered">
                 <div class="column">
@@ -63,13 +61,13 @@ fn about_me() -> Html {
                             {"About Me"}
                         </h1>
                         <h2 class="subtitle is-size-3" style="margin-top: 2rem;">
-                            {"I'm Tor Børve Rasmussen, and I am currently studying 
+                            {"I'm Tor Børve Rasmussen, and I am currently studying
                             "}<strong>{"Control Systems and Robotics"}</strong>{" at NTNU. 
                             I am in the final year of my master's program and working on my thesis about "}
                             <strong>{"motion control"}</strong>{"."}
                         </h2>
                         <h2 class="subtitle is-size-3">
-                            {"Beyond my academic pursuits, I am passionate about "}<strong>{"skiing"}</strong>{" and "}<strong>{"mountain hiking"} </strong>{", 
+                            {"Beyond my academic pursuits, I am passionate about "}<strong>{"skiing"}</strong>{" and "}<strong>{"mountain hiking"} </strong>{",
                             enjoying the nature and the outdoors."}
                         </h2>
 

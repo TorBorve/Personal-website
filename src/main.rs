@@ -1,19 +1,14 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use console_log;
 use log::Level;
 
 mod routes;
-use crate::routes::{Route, switch};
-
+use crate::routes::{switch, Route};
 
 mod components;
 mod pages;
 mod projects;
-
-
-
 
 #[function_component(App)]
 fn app() -> Html {
@@ -22,10 +17,7 @@ fn app() -> Html {
             <Switch<Route> render={switch}/>
         </BrowserRouter>
     }
-
 }
-
-
 
 fn main() {
     console_log::init_with_level(Level::Debug).expect("Failed to init logger");
