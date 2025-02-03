@@ -10,11 +10,8 @@
 - [X] Contact form
 - [X] List of projects
 - [X] Not found page
-- [ ] Github actions for auto deploy.
+- [X] Github actions for auto deploy.
 
-## Resources
-
-- use plotters in yew: [LINK](https://steven-anker.nl/blog/?p=454)
 
 ## Hosting
 
@@ -49,3 +46,8 @@ The docker container needs permision to read the certificates. This can be done 
 sudo chown -R www-data:www-data /etc/letsencrypt/live/ /etc/letsencrypt/archive/
 sudo chmod -R 755 /etc/letsencrypt/
 ```
+
+## Resources
+
+- use plotters in yew: [LINK](https://steven-anker.nl/blog/?p=454)
+- github actions with rust: [LINK](https://github.com/simbleau/website)
