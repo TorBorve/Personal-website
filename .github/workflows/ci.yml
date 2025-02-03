@@ -8,6 +8,9 @@ jobs:
       - name: Setup | Checkout
         uses: actions/checkout@v4
 
+      - name: Setup | Dependencies
+        run: sudo apt update && sudo apt-get install -y libfontconfig1-dev libfontconfig1
+
       - name: Setup | Toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
