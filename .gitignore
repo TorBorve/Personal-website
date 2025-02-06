@@ -2,3 +2,5 @@ dist/
 target/
 .vscode/
 static_backup/
+blog_ideas.md
+todo.md

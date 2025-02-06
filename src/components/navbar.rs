@@ -31,14 +31,14 @@ pub fn nav_bar() -> Html {
     // Set at the beginning
     use_effect_with((*theme).clone(), move |theme| {
         web_sys::window()
-                .unwrap()
-                .document()
-                .unwrap()
-                .document_element()
-                .unwrap()
-                .set_attribute("data-theme", &theme)
-                .unwrap();
-    }); 
+            .unwrap()
+            .document()
+            .unwrap()
+            .document_element()
+            .unwrap()
+            .set_attribute("data-theme", theme)
+            .unwrap();
+    });
 
     let sun_icon = html! {
         <span class="icon is-sun">
