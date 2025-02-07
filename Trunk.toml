@@ -1,4 +1,6 @@
 [build]
 target = "index.html"
-# target = "wasm32-unknown-unknown"
 dist = "dist"
+
+[clean]
+cargo = true

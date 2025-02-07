@@ -1314,6 +1314,7 @@ version = "0.1.0"
 dependencies = [
  "chrono",
  "console_log",
+ "gloo-storage 0.3.0",
  "log",
  "plotters",
  "plotters-canvas",

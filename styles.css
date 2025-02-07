@@ -18,7 +18,7 @@
 } 
 
 .icon-link {
-    color: white;
+    color: currentColor;
     transition: color 0.3s ease;
 }
 
@@ -63,7 +63,23 @@
     transform: translateY(-0.25em);
 }
 
-.project-card .title {
-    /* color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l)); */
-    /* color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l)); */
+.is-sun {
+    --h: 42deg;
+    --s: 100%;
+    --l: 53%;
+    color: hsl(var(--h), var(--s), var(--l));
+}
+
+.is-moon {
+    --h: 256deg;
+    --s: 89%;
+    --l: 65%;
+    color: hsl(var(--h), var(--s), var(--l));
+}
+
+.is-system {
+    --h: 153deg;
+    --s: 53%;
+    --l: 53%;
+    color: hsl(var(--h), var(--s), var(--l));
 }
