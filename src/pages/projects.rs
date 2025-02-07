@@ -28,12 +28,14 @@ fn project_card(props: &ProjectCardProps) -> Html {
                         <img src={project.image_url.clone()} alt={format!("Image of {}", project.title)}/>
                     </figure>
                 </div>
-                <div class="column">
-                    <h1 class="title title-bar is-size-2">{&project.title}</h1>
-                    <br/>
-                    <h2 class="subtitle is-size-3">{&project.summary}</h2>
-                    <div class="is-flex is-flex-direction-column is-justify-content-end is-align-items-flex-end">
-                        <h1 class="title is-size-5">{formated_date}</h1>
+                <div class="column is-flex is-flex-direction-column is-justify-content-space-between">
+                    <div>
+                        <h1 class="title title-bar is-size-2">{&project.title}</h1>
+                        <br/>
+                        <h2 class="subtitle is-size-3">{&project.summary}</h2>
+                    </div>
+                    <div class="">
+                        <h1 class="title is-size-5 has-text-right">{formated_date}</h1>
                     </div>
                 </div>
             </div>
