@@ -20,7 +20,11 @@ pub struct Project {
 }
 
 pub fn load_all_projects() -> Vec<Project> {
-    let mut projects = vec![car_mpc::load(), website::load()];
+    let mut projects = vec![
+        car_mpc::load(),
+        website::load(),
+        control_systems_torbox::load(),
+    ];
 
     projects.sort_by(|a, b| b.date.partial_cmp(&a.date).unwrap());
     projects
@@ -63,4 +67,5 @@ macro_rules! load_markdown_project {
 }
 
 mod car_mpc;
+mod control_systems_torbox;
 mod website;
