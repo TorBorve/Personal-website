@@ -1,0 +1,6 @@
+{
+    "title": "Control Systems TorBox",
+    "summary": "I Developed a Rust library to substitute MATLAB's Control Systems Toolbox for analysing and creating linear control systems",
+    "image_url": "static/auto_tuning_nyquist.png",
+    "date": "2025-05-01"
+}
